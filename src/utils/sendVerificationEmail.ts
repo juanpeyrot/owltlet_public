@@ -1,7 +1,7 @@
 
 
 export const sendVerificationEmail = async (email: string, verificationToken: string) => {
-  const response = await fetch (`${process.env.NEXT_PUBLIC_URL}/api/send`, {
+  const response = await fetch (`/api/send`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

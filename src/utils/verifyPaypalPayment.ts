@@ -5,7 +5,7 @@ export const verifyPaypalPayment = async (
   bearerToken: string
 ): Promise<PayPalOrderStatusResponse | null>  => {
 
-  const paypalOrderUrl = `${process.env.PAYPAL_ORDERS_URL}/${paypalTransactionId}`;
+  const paypalOrderUrl = `/${paypalTransactionId}`;
   const myHeaders = new Headers();
   myHeaders.append(
     "Authorization",

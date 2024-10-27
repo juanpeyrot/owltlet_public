@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: 'Email de destino y token de verificación son requeridos' });
   }
 
-  const verificationUrl = `${process.env.NEXT_PUBLIC_URL}/auth/verify?token=${verificationToken}`;
+  const verificationUrl = `/auth/verify?token=${verificationToken}`;
   
   const msg = {
     to: toEmail,

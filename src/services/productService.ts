@@ -26,9 +26,7 @@ export const getProductsByFilters = async (
 
 
 export const getNewProducts = async(): Promise<APIResponse<BaseProduct[]>> => {
-	const url = `/api/products?filter=new`
-	console.log(url)
-  const response = await fetch(url, {
+  const response = await fetch(`/api/products?filter=new`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
