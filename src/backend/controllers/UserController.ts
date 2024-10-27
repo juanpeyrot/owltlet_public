@@ -48,7 +48,13 @@ class UserController {
         password,
         verificationToken,
       });
-      await sendVerificationEmail(email, verificationToken);
+      
+			try {
+				await sendVerificationEmail(email, verificationToken);
+			} catch (error) {
+				res.status(400).json({ error: 'Verification email could not be sent, please try again' });
+			}
+
       const savedUser = await newUser.save();
       const parsedUser = mapToStoredUser(savedUser);
       

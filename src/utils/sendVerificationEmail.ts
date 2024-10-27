@@ -8,7 +8,7 @@ export const sendVerificationEmail = async (email: string, verificationToken: st
 			'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? "",
     },
     body: JSON.stringify({toEmail: email, verificationToken}),
-  });
+  })
 
   return response.json();
 }
