@@ -18,7 +18,7 @@ export const verifyAccount = async(token: string): Promise<APIResponseNoData> =>
   return response.json();
 }
 
-export const createUser = async(email: string, password: string): Promise<APIResponse<StoredUser>> => {
+export const createUser = async(email: string, password: string, verificationToken: string): Promise<APIResponse<StoredUser>> => {
     const response = await fetch(`/api/users`, {
     method: 'POST',
     headers: {
@@ -28,6 +28,7 @@ export const createUser = async(email: string, password: string): Promise<APIRes
     body: JSON.stringify({
       email,
       password,
+			verificationToken,
     }),
     });
 

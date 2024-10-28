@@ -1,13 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import User, { IUser } from "../db/models/User";
-import { sendVerificationEmail } from "@/utils/sendVerificationEmail";
 import { APIError, APIResponse, APIResponseNoData } from "@/types/api";
 import { StoredUser } from "@/types/user";
 import { mapToStoredUser } from "@/utils/mappers";
 
 class UserController {
   async verifyEmailByToken(req: NextApiRequest, res: NextApiResponse<APIResponseNoData | APIError>){
-    const { token } = req.body;
+    const { token } = req.query;
 
     try {
       const user: IUser | null = await User.findOne({ verificationToken: token });
@@ -41,19 +40,12 @@ class UserController {
 
   async createUser(req: NextApiRequest, res: NextApiResponse<APIResponse<StoredUser> | APIError>) {
     try {
-      const { email, password } = req.body;
-      const verificationToken = crypto.randomUUID();
+      const { email, password, verificationToken } = req.body;
       const newUser: IUser = new User({
         email,
         password,
         verificationToken,
       });
-      
-			try {
-				await sendVerificationEmail(email, verificationToken);
-			} catch (error) {
-				res.status(400).json({ error: 'Verification email could not be sent, please try again' });
-			}
 
       const savedUser = await newUser.save();
       const parsedUser = mapToStoredUser(savedUser);

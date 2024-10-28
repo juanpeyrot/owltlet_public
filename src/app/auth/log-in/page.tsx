@@ -17,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { FormError } from "@/components/FormError";
 import { StoredUser } from "@/types/user";
 import { useService } from "@/hooks/useService";
+import { rest } from "lodash";
 
 const Page = () => {
 
@@ -43,6 +44,7 @@ const Page = () => {
   const onSubmit = ({ email: formEmail, password: formPassword }: TAuthCredentialsValidator) => {
     setEmail(formEmail);
     setPassword(formPassword);
+		reset();
   };
 
   return (

@@ -105,11 +105,6 @@ Puedes ver la app desplegada [aquí](https://google.com).
   <span style="margin-left: 8px; font-weight: bold; font-size: 1rem;">Cloudinary API</span>
 </div>
 
-<div style="display: flex; align-items: center; margin-bottom: 8px;">
-  <img src="./images/icons/sendgrid.svg" alt="SendGrid API" width="20" height="20" />
-  <span style="margin-left: 8px; font-weight: bold; font-size: 1rem;">SendGrid API</span>
-</div>
-
 ---
 
 ## Arquitectura del Proyecto

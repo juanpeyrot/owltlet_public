@@ -15,18 +15,20 @@ import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import { FormError } from "@/components/FormError";
 import { useService } from "@/hooks/useService";
+import { sendVerificationEmail } from "@/utils/sendVerificationEmail";
 
 const Page = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+	const [verificationToken, setVerificationToken] = useState('');
   const { register, handleSubmit, formState: { errors }, reset } = useForm<TAuthCredentialsValidator>({ resolver: zodResolver(AuthCredentialsValidator) });
-  const { error, loading, successMessage, execute } = useService(() => createUser(email, password))
+  const { error, loading, successMessage, execute } = useService(() => createUser(email, password, verificationToken))
 
   useEffect(() => {
-    if (!email || !password) return;
+    if (!email || !password || !verificationToken) return;
     execute();
-  }, [email, password])
+  }, [email, password, verificationToken])
 
   useEffect(() => {
     if (!successMessage) return;
@@ -34,9 +36,17 @@ const Page = () => {
     reset();
   }, [successMessage]);
 
-  const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-    setEmail(email);
-    setPassword(password);
+  const onSubmit = async({ email, password }: TAuthCredentialsValidator) => {
+		const token = crypto.randomUUID();
+    try {
+			await sendVerificationEmail(email, token);
+			setEmail(email);
+			setPassword(password);
+			setVerificationToken(token);
+		} catch (error) {
+			console.error(error);
+		}
+		reset();
   }
 
   return (
