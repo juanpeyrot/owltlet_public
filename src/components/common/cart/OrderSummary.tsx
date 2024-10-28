@@ -1,5 +1,4 @@
 import { CartItem } from "@/types/cart"
-import { PayPalButton } from "@/components/paypal/PayPalButton";
 import { CheckoutButton } from "./CheckoutButton";
 
 interface Props {

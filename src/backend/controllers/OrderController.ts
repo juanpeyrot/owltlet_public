@@ -19,7 +19,7 @@ class OrderController {
       
 			const newOrder: IOrder = new Order({
         isPaid, 
-        productIds, 
+        productIds,
         total,
 				subTotal: (total - (total*tax)).toFixed(2),
 				tax,

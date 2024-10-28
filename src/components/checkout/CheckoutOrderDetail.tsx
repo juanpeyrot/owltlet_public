@@ -1,5 +1,4 @@
 import { BaseOrder } from "@/types/order";
-import MaxWidthWrapper from "../common/MaxWidthWrapper";
 import { PayPalButton } from "../paypal/PayPalButton";
 import { OrderProduct } from "@/types/product";
 
@@ -18,6 +17,7 @@ export const CheckoutOrderDetail = ({
 }: Props) => {
   const orderSubtotal = productsInOrder
     .reduce((acc, item) => {
+			console.log(acc)
       return item.product.discountPercentage
         ? acc +
             (item.product.price -
@@ -41,7 +41,7 @@ export const CheckoutOrderDetail = ({
           <div className="flex justify-between">
             <span className="text-gray-600 font-light">Taxes:</span>
             <span className="font-light text-slate-500">
-              ${(result.total * result.tax).toFixed(2)}
+              ${(parseFloat(orderSubtotal) * result.tax).toFixed(2)}
             </span>
           </div>
           <div className="flex justify-between mt-2">

@@ -21,7 +21,7 @@ Owltlet es una tienda en línea que permite a los usuarios comprar productos tec
 
 Este proyecto personal, construido en **React**, **Next.js 14** y **MongoDB Atlas**, representa un desafío técnico que asumí para desarrollar una aplicación **fullstack** desde cero. El enfoque fue crear una experiencia sólida en ambos extremos de la aplicación (frontend y backend), abarcando la creación de una API REST propia y otros elementos clave de una tienda en línea.
 
-Puedes ver la app desplegada [aquí](https://google.com).
+Puedes ver la app desplegada [aquí](owltlet-public.vercel.app).
 
 <div style="display: flex; flex-direction: column; justify-content: center">
 	<div style="height: 400px;">
@@ -150,11 +150,13 @@ Puedes ver la app desplegada [aquí](https://google.com).
 ## Oportunidades de Mejora
 Owltlet es una aplicación totalmente funcional y completa, sin embargo, existen algunas áreas en las que planeo mejorar y agregar nuevas características:
 
--**Rendimiento**: La app cumple notablemente con medidas de accesibilidad y SEO, pero su rendimiento en cuanto a tiempos de carga es mejorable, principalmente apuntando hacia las imágenes y su renderizado, las cuales podrían optimizarse notoriamente usando herramientas conocidas, tales como [Squoosh](https://squoosh.app/).
+-**Rendimiento**: La app cumple notablemente con medidas de accesibilidad y SEO, pero su rendimiento en cuanto a tiempos de carga es mejorable, principalmente apuntando hacia las imágenes y su renderizado, si bien los assets se encuentran optimizados, no es el caso de las imagenes almacenadas en la nube. las cuales podrían optimizarse notoriamente usando herramientas conocidas, tales como [Squoosh](https://squoosh.app/).
 
 -**REST API**: Si bien implementé un middleware básico para la protección de rutas de la API, considero que la utilización de otros mecanismos (ej. JWT) podrían agregar más robustez a la protección de estas rutas.
 
 -**Seguridad**: Los mecanismos de autenticación de usuarios no cuentan con encriptado de contraseñas actualmente, la cual se podría lograr utilizando tecnologías como [bcrypt](https://www.npmjs.com/package/bcrypt).
+
+Estas características no han sido implementadas por no ser factores críticos del proyecto, además que requieren de cierto tiempo para implementarse, por ende serán realizadas en el futuro. 
 
 ---
 

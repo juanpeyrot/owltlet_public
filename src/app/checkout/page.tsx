@@ -7,7 +7,6 @@ import { OrderSuccess } from "@/components/paypal/OrderSuccess";
 import { useService } from "@/hooks/useService";
 import { getOrderById } from "@/services/orderService";
 import { getProductById } from "@/services/productService";
-import { BaseOrder } from "@/types/order";
 import { OrderProduct } from "@/types/product";
 import { Skeleton } from "@mui/material";
 import { useSearchParams } from "next/navigation";
@@ -19,7 +18,6 @@ const Page = () => {
   const { execute, error, result, loading } = useService(() =>
     getOrderById(orderId ?? "")
   );
-  const [order, setOrder] = useState<BaseOrder | null>(null);
   const [productsInOrder, setProductsInOrder] = useState<OrderProduct[]>([]);
 
   useEffect(() => {
@@ -29,7 +27,6 @@ const Page = () => {
 
   useEffect(() => {
     if (result) {
-      setOrder(result);
       fetchProductsInOrder();
     }
   }, [result]);
