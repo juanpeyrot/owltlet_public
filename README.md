@@ -21,7 +21,7 @@ Owltlet es una tienda en línea que permite a los usuarios comprar productos tec
 
 Este proyecto personal, construido en **React**, **Next.js 14** y **MongoDB Atlas**, representa un desafío técnico que asumí para desarrollar una aplicación **fullstack** desde cero. El enfoque fue crear una experiencia sólida en ambos extremos de la aplicación (frontend y backend), abarcando la creación de una API REST propia y otros elementos clave de una tienda en línea.
 
-Puedes ver la app desplegada [aquí](owltlet-public.vercel.app).
+**Puedes ver la app desplegada [aquí](https://owltlet-public.vercel.app)**.
 
 <div style="display: flex; flex-direction: column; justify-content: center">
 	<div style="height: 400px;">
