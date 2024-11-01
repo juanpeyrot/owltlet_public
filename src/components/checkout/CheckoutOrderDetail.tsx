@@ -17,7 +17,6 @@ export const CheckoutOrderDetail = ({
 }: Props) => {
   const orderSubtotal = productsInOrder
     .reduce((acc, item) => {
-			console.log(acc)
       return item.product.discountPercentage
         ? acc +
             (item.product.price -
